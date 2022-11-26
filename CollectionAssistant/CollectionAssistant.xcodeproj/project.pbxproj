@@ -15,6 +15,9 @@
 		32C9479A293207FC0094D431 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C94798293207FC0094D431 /* LaunchScreen.storyboard */; };
 		32C947A5293208700094D431 /* ColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C947A4293208700094D431 /* ColorSelectionView.swift */; };
 		32C947A829320B280094D431 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C947A729320B280094D431 /* MainViewController.swift */; };
+		32C947AC29320ED70094D431 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C947AB29320ED70094D431 /* AddButton.swift */; };
+		32C947AE2932103F0094D431 /* RemoveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C947AD2932103F0094D431 /* RemoveButton.swift */; };
+		32C947B0293210620094D431 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C947AF293210620094D431 /* ColorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		32C9479B293207FC0094D431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32C947A4293208700094D431 /* ColorSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionView.swift; sourceTree = "<group>"; };
 		32C947A729320B280094D431 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		32C947AB29320ED70094D431 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		32C947AD2932103F0094D431 /* RemoveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveButton.swift; sourceTree = "<group>"; };
+		32C947AF293210620094D431 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,26 +66,18 @@
 		32C9478C293207FB0094D431 /* CollectionAssistant */ = {
 			isa = PBXGroup;
 			children = (
-				32C947A629320AB80094D431 /* Controllers */,
 				32C947A3293208250094D431 /* Utilities */,
 				32C947A22932081B0094D431 /* Views */,
-				32C947A1293208070094D431 /* Models */,
+				32C947A629320AB80094D431 /* Controllers */,
 			);
 			path = CollectionAssistant;
-			sourceTree = "<group>";
-		};
-		32C947A1293208070094D431 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		32C947A22932081B0094D431 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				32C94793293207FB0094D431 /* Main.storyboard */,
-				32C94798293207FC0094D431 /* LaunchScreen.storyboard */,
+				32C947AA29320EBF0094D431 /* Buttons */,
+				32C947A929320EA90094D431 /* Storyboards */,
 				32C947A4293208700094D431 /* ColorSelectionView.swift */,
 			);
 			path = Views;
@@ -103,6 +101,25 @@
 				32C947A729320B280094D431 /* MainViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		32C947A929320EA90094D431 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				32C94793293207FB0094D431 /* Main.storyboard */,
+				32C94798293207FC0094D431 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		32C947AA29320EBF0094D431 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				32C947AB29320ED70094D431 /* AddButton.swift */,
+				32C947AD2932103F0094D431 /* RemoveButton.swift */,
+				32C947AF293210620094D431 /* ColorButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +195,12 @@
 			files = (
 				32C94792293207FB0094D431 /* ViewController.swift in Sources */,
 				32C9478E293207FB0094D431 /* AppDelegate.swift in Sources */,
+				32C947AE2932103F0094D431 /* RemoveButton.swift in Sources */,
 				32C94790293207FB0094D431 /* SceneDelegate.swift in Sources */,
+				32C947AC29320ED70094D431 /* AddButton.swift in Sources */,
 				32C947A5293208700094D431 /* ColorSelectionView.swift in Sources */,
 				32C947A829320B280094D431 /* MainViewController.swift in Sources */,
+				32C947B0293210620094D431 /* ColorButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
