@@ -21,8 +21,7 @@ class ColorButton: UIButton {
   func style() {
     translatesAutoresizingMaskIntoConstraints = false
     layer.borderWidth = 2
-    //    var config =
-    //
-    //    self.configuration = config
+    layer.cornerRadius = 8
+    clipsToBounds = true
   }
 }

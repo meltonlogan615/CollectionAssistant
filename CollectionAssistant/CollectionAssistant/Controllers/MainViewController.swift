@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
   
+  let gridView = GridCollectionView()
   let colorView = ColorSelectionView()
   
   override func viewDidLoad() {
@@ -24,14 +25,25 @@ class MainViewController: UIViewController {
 extension MainViewController {
   
   func style() {
+    gridView.translatesAutoresizingMaskIntoConstraints = false
+    gridView.backgroundColor = .black
     colorView.translatesAutoresizingMaskIntoConstraints = false
   }
   
   func layout() {
+    view.addSubview(gridView)
+    NSLayoutConstraint.activate([
+      gridView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
+      gridView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+      gridView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+      gridView.widthAnchor.constraint(equalToConstant: (view.frame.width * 0.66))
+    ])
+    
     view.addSubview(colorView)
     NSLayoutConstraint.activate([
       colorView.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1),
-      colorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      colorView.leadingAnchor.constraint(equalTo: gridView.trailingAnchor),
+      
       colorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       colorView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])

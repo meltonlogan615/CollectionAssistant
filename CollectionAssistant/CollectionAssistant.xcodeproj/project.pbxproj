@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32024ED0293462E10040B991 /* GridCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32024ECF293462E10040B991 /* GridCollectionView.swift */; };
 		32C9478E293207FB0094D431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9478D293207FB0094D431 /* AppDelegate.swift */; };
 		32C94790293207FB0094D431 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9478F293207FB0094D431 /* SceneDelegate.swift */; };
 		32C94792293207FB0094D431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C94791293207FB0094D431 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32024ECF293462E10040B991 /* GridCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionView.swift; sourceTree = "<group>"; };
 		32C9478A293207FB0094D431 /* CollectionAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C9478D293207FB0094D431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C9478F293207FB0094D431 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				32C947AA29320EBF0094D431 /* Buttons */,
 				32C947A929320EA90094D431 /* Storyboards */,
 				32C947A4293208700094D431 /* ColorSelectionView.swift */,
+				32024ECF293462E10040B991 /* GridCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				32C947A5293208700094D431 /* ColorSelectionView.swift in Sources */,
 				32C947A829320B280094D431 /* MainViewController.swift in Sources */,
 				32C947B0293210620094D431 /* ColorButton.swift in Sources */,
+				32024ED0293462E10040B991 /* GridCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

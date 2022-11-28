@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     // Do any additional setup after loading the view.
     view.backgroundColor = .magenta
     
-    let timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(keepMoving), userInfo: nil, repeats: false)
+    _ = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(keepMoving), userInfo: nil, repeats: false)
   }
   
   @objc
