@@ -14,16 +14,12 @@ class AddRemoveViewModel {
       guard let button = button as? UIButton else { return }
       switch button.tag {
         case 0:
-          print("fart 1")
           button.addTarget(self, action: #selector(addRow), for: .touchUpInside)
         case 1:
-          print("fart 2")
           button.addTarget(self, action: #selector(removeRow), for: .touchUpInside)
         case 2:
-          print("fart 2")
           button.addTarget(self, action: #selector(addColumn), for: .touchUpInside)
         case 3:
-          print("fart 2")
           button.addTarget(self, action: #selector(removeColumn), for: .touchUpInside)
         default:
           print("sod off")

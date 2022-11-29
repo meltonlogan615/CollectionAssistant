@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 class ColorButton: UIButton {
+  var color: UIColor!
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
-    translatesAutoresizingMaskIntoConstraints = false
-    layer.cornerRadius = 80
-    clipsToBounds = true
+
   }
   
   required init?(coder: NSCoder) {
@@ -22,18 +22,20 @@ class ColorButton: UIButton {
   
   convenience init(bg: UIColor) {
     self.init()
-    self.layer.borderWidth = 4
-    self.layer.borderColor = bg.cgColor
-
-
-    var config = UIButton.Configuration.filled()
-    config.baseForegroundColor = .white
-    config.baseBackgroundColor = bg
+    translatesAutoresizingMaskIntoConstraints = false
+    var config = UIButton.Configuration.bordered()
     config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
       var outgoing = incoming
       outgoing.font = .preferredFont(forTextStyle: .largeTitle)
       return outgoing
     }
-    self.configuration = config
+    config.baseForegroundColor = .label
+    config.baseBackgroundColor = bg
+    layer.cornerRadius = 8
+    clipsToBounds = true
+    layer.borderWidth = 4
+    layer.borderColor = bg.cgColor
+    
+    configuration = config
   }
 }

@@ -74,8 +74,8 @@
 			children = (
 				32C20AE1293666A0004031B5 /* AddRemoveViewModel.swift */,
 				32C20ACD2934DB7B004031B5 /* GridViewModel.swift */,
-				32C20ACF2934DB8C004031B5 /* ColorViewModel.swift */,
 				32C20ADE293650E1004031B5 /* UndoRedoViewModel.swift */,
+				32C20ACF2934DB8C004031B5 /* ColorViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -123,8 +123,10 @@
 			children = (
 				32C947AA29320EBF0094D431 /* Buttons */,
 				32C947A929320EA90094D431 /* Storyboards */,
-				32C947A4293208700094D431 /* ColorSelectionView.swift */,
+				32C20AD72934FEE6004031B5 /* AddRemoveStack.swift */,
 				32024ECF293462E10040B991 /* GridCollectionView.swift */,
+				32C20AD929350666004031B5 /* UndoRedoStack.swift */,
+				32C947A4293208700094D431 /* ColorSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,9 +165,7 @@
 			children = (
 				32C947AB29320ED70094D431 /* AddButton.swift */,
 				32C947AD2932103F0094D431 /* RemoveButton.swift */,
-				32C20AD72934FEE6004031B5 /* AddRemoveStack.swift */,
 				32C20ADB29351F5D004031B5 /* ActionButtons.swift */,
-				32C20AD929350666004031B5 /* UndoRedoStack.swift */,
 				32C947AF293210620094D431 /* ColorButton.swift */,
 			);
 			path = Buttons;

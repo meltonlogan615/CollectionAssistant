@@ -12,9 +12,12 @@ class MainViewController: UIViewController {
   let addRemoveStack = AddRemoveStack()
   var gridView: GridCollectionView! {
     didSet {
+      gridView.createdLayout = createCompositionalLayout()
+
       gridView.collection.dataSource = self
-      gridView.collection.delegate = self
+//      gridView.delegate = self
       gridView.collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+//      gridView = UICollectionView(frame: CGRect(), collectionViewLayout: createCompositionalLayout())
     }
   }
   
@@ -37,16 +40,15 @@ class MainViewController: UIViewController {
     ColorViewModel()
   }()
   
-  
-
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
     gridView = GridCollectionView()
     addRemoveViewModel.setButtonActions(for: addRemoveStack.buttonStack)
     undoRedoViewModel.setButtonActions(for: undoRedo.buttonStack)
-    colorViewModel.setColorButtonActions(for: colorView.colorStack)
-
+    colorViewModel.colors = colorView.colors
+    colorViewModel.buttonStack = colorView.colorStack
+    colorViewModel.setColorButtonActions()
     style()
     layout()
   }
@@ -56,7 +58,6 @@ extension MainViewController {
   func style() {
     addRemoveStack.translatesAutoresizingMaskIntoConstraints = false
     gridView.translatesAutoresizingMaskIntoConstraints = false
-    gridView.collection.backgroundColor = .red
     undoRedo.translatesAutoresizingMaskIntoConstraints = false
     colorView.translatesAutoresizingMaskIntoConstraints = false
   }
@@ -74,7 +75,7 @@ extension MainViewController {
       gridView.topAnchor.constraint(equalToSystemSpacingBelow: addRemoveStack.bottomAnchor, multiplier: 2),
       gridView.leadingAnchor.constraint(equalTo: addRemoveStack.leadingAnchor),
       gridView.widthAnchor.constraint(equalTo: addRemoveStack.widthAnchor),
-      view.bottomAnchor.constraint(equalToSystemSpacingBelow: gridView.bottomAnchor, multiplier: 2),
+      view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: gridView.bottomAnchor, multiplier: 2),
     ])
     
     view.addSubview(undoRedo)
@@ -96,7 +97,8 @@ extension MainViewController {
 
 extension MainViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    var cellCount = (gridViewModel.rowCount * gridViewModel.colCount)
+    let cellCount = (gridViewModel.rowCount * gridViewModel.colCount)
+    print(cellCount)
     return cellCount
   }
   
@@ -108,9 +110,46 @@ extension MainViewController: UICollectionViewDataSource {
   }
 }
 
-extension MainViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print("Tapped \(indexPath)")
+//extension MainViewController: UICollectionViewDelegate {
+//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    print("Tapped \(indexPath)")
+//  }
+//}
+
+extension MainViewController {
+  func createCompositionalLayout() -> UICollectionViewLayout {
+    let layout = UICollectionViewCompositionalLayout { _,_ in
+      return self.createGroup()
+    }
+    let config = UICollectionViewCompositionalLayoutConfiguration()
+    config.interSectionSpacing = 8
+    layout.configuration = config
+    return layout
+  }
+  
+  func createGroup() -> NSCollectionLayoutSection {
+    let rowHeight = CGFloat(1/gridViewModel.rowCount)
+    let columnWidth = CGFloat(1/gridViewModel.colCount)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                           heightDimension: .fractionalHeight(1))
+    
+    let sectionSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                             heightDimension: .fractionalHeight(rowHeight))
+    
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(columnWidth),
+                                          heightDimension: .fractionalHeight(1))
+
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                   subitems: [item])
+
+    let sectionAssembly = NSCollectionLayoutGroup.vertical(layoutSize: sectionSize,
+                                                           subitems: [group])
+    
+    let section = NSCollectionLayoutSection(group: sectionAssembly)
+    return section
   }
 }
 

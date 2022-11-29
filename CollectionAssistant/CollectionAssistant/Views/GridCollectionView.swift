@@ -11,12 +11,12 @@ import UIKit
 class GridCollectionView: UIView {
   
   var collection: UICollectionView!
-  let layoutCollection = UICollectionViewLayout()
+  var createdLayout = UICollectionViewLayout()
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    collection = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewLayout())
-    collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    collection = UICollectionView(frame: frame, collectionViewLayout: createdLayout)
+//    collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     style()
     layout()
   }

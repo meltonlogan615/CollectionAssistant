@@ -15,10 +15,8 @@ class UndoRedoViewModel {
       guard let button = button as? UIButton else { return }
       switch button.tag {
         case 1:
-          print("fart 1")
           button.addTarget(self, action: #selector(undoLastAction), for: .touchUpInside)
         case 2:
-          print("fart 2")
           button.addTarget(self, action: #selector(redoLastAction), for: .touchUpInside)
         default:
           print("sod off")

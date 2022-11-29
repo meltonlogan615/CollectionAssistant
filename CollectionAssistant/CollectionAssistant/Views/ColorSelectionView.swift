@@ -24,7 +24,6 @@ class ColorSelectionView: UIView {
 }
 
 extension ColorSelectionView {
-  
   func style() {
     translatesAutoresizingMaskIntoConstraints = false
     
@@ -43,12 +42,10 @@ extension ColorSelectionView {
       colorStack.bottomAnchor.constraint(equalTo: bottomAnchor)
     ])
     
+    var tagNumber = 0
     for color in colors {
       let button = ColorButton(bg: color)
-      button.translatesAutoresizingMaskIntoConstraints = false
-      button.layer.borderWidth = 2
-      button.layer.cornerRadius = 4
-      button.clipsToBounds = true
+      button.tag = tagNumber
       switch color {
         case .systemRed:
           button.setTitle("Red", for: [])
@@ -70,17 +67,18 @@ extension ColorSelectionView {
 
         case .black:
           button.setTitle("Black", for: [])
-
+          button.setTitleColor(UIColor.systemBackground, for: [])
         case .clear:
           button.backgroundColor = .white
           button.setTitle("Clear All", for: [])
-          button.setTitleColor(UIColor.black, for: [])
+          button.setTitleColor(UIColor.label, for: [])
           button.layer.borderColor = UIColor.black.cgColor
           
         default:
           button.setTitle("fart", for: [])
 
       }
+      tagNumber += 1
       colorStack.addArrangedSubview(button)
     }
   }
