@@ -10,14 +10,12 @@ import UIKit
 
 class GridCollectionView: UIView {
   
-  var colors: [UIColor]!
   var collection: UICollectionView!
   let layoutCollection = UICollectionViewLayout()
-  
+
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    collection = UICollectionView(frame: self.frame, collectionViewLayout: layoutCollection)
+    collection = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewLayout())
     collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     style()
     layout()
@@ -38,21 +36,10 @@ extension GridCollectionView {
   func layout() {
     addSubview(collection)
     NSLayoutConstraint.activate([
-      collection.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 2),
+      collection.topAnchor.constraint(equalTo: topAnchor),
       collection.leadingAnchor.constraint(equalTo: leadingAnchor),
       collection.trailingAnchor.constraint(equalTo: trailingAnchor),
-      bottomAnchor.constraint(equalToSystemSpacingBelow: collection.bottomAnchor, multiplier: 2)
+      collection.bottomAnchor.constraint(equalTo: bottomAnchor)
     ])
-  }
-}
-
-extension GridCollectionView: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return colors.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-    return cell
   }
 }

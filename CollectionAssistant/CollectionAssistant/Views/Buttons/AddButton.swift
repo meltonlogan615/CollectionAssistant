@@ -9,22 +9,34 @@ import Foundation
 import UIKit
 
 class AddButton: UIButton {
+  var name = AttributedString()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
-    style()
   }
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-  func style() {
-    translatesAutoresizingMaskIntoConstraints = false
-    setImage(UIImage(systemName: "plus"), for: [])
-    
-//    var config =
-//
-//    self.configuration = config
+  convenience init(name: AttributedString) {
+    self.init()
+//    self.name = name
+    self.layer.cornerRadius = 8
+    self.clipsToBounds = true
+    var config = UIButton.Configuration.filled()
+    config.titlePadding = 4
+    config.imagePadding = 4
+    config.attributedTitle = name
+    config.baseForegroundColor = UIColor.systemBackground
+    config.baseBackgroundColor = UIColor.link
+    config.imagePadding = 8
+    config.image = UIImage(systemName: "plus")
+    config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+      var outgoing = incoming
+      outgoing.font = .preferredFont(forTextStyle: .title1)
+      return outgoing
+    }
+    self.configuration = config
   }
 }
 

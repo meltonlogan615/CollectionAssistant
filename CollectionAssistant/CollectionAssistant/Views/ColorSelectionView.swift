@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class ColorSelectionView: UIView {
-  
   let colors: [UIColor] = [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemBlue, .systemPurple, .black, .clear]
   var colorStack = UIStackView()
   
@@ -38,17 +37,15 @@ extension ColorSelectionView {
   func layout() {
     addSubview(colorStack)
     NSLayoutConstraint.activate([
-      colorStack.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 2),
-      colorStack.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 4),
-      trailingAnchor.constraint(equalToSystemSpacingAfter: colorStack.trailingAnchor, multiplier: 4),
-      bottomAnchor.constraint(equalToSystemSpacingBelow: colorStack.bottomAnchor, multiplier: 2)
+      colorStack.topAnchor.constraint(equalTo: topAnchor),
+      colorStack.leadingAnchor.constraint(equalTo: leadingAnchor),
+      colorStack.trailingAnchor.constraint(equalTo: trailingAnchor),
+      colorStack.bottomAnchor.constraint(equalTo: bottomAnchor)
     ])
     
     for color in colors {
-      let button = UIButton()
+      let button = ColorButton(bg: color)
       button.translatesAutoresizingMaskIntoConstraints = false
-      button.backgroundColor = color
-      button.layer.borderColor = color.cgColor
       button.layer.borderWidth = 2
       button.layer.cornerRadius = 4
       button.clipsToBounds = true
