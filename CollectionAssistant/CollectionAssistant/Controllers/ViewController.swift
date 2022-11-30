@@ -9,11 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
     view.backgroundColor = .magenta
+    view.isUserInteractionEnabled = false
     Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(keepMoving), userInfo: nil, repeats: false)
   }
   
@@ -22,10 +22,9 @@ class ViewController: UIViewController {
     let vc = MainViewController()
     vc.modalTransitionStyle = .partialCurl
     vc.modalPresentationStyle = .fullScreen
-    self.present(vc, animated: true)
+    vc.source = self
+    present(vc, animated: true)
+//    show(vc, sender: self)
   }
-  
-
-
 }
 

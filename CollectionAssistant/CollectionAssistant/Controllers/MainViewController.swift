@@ -9,13 +9,17 @@ import UIKit
 
 class MainViewController: UIViewController {
   
+  var source: UIViewController!
   let addRemoveStack = AddRemoveStack()
+  
   var gridView: UICollectionView! {
     didSet {
       gridView.dataSource = self
-//      gridView.delegate = self
+      gridView.delegate = self
       gridView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-//      gridView = UICollectionView(frame: CGRect(), collectionViewLayout: createCompositionalLayout())
+      gridView.layer.borderColor = UIColor.label.cgColor
+      gridView.layer.borderWidth = 4
+      gridView.isScrollEnabled = false
     }
   }
   
@@ -41,12 +45,17 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
+
     gridView = UICollectionView(frame: .infinite, collectionViewLayout: createCompositionalLayout())
+    
     addRemoveViewModel.setButtonActions(for: addRemoveStack.buttonStack)
+    
     undoRedoViewModel.setButtonActions(for: undoRedo.buttonStack)
+    
     colorViewModel.colors = colorView.colors
     colorViewModel.buttonStack = colorView.colorStack
     colorViewModel.setColorButtonActions()
+    
     style()
     layout()
   }
@@ -55,8 +64,11 @@ class MainViewController: UIViewController {
 extension MainViewController {
   func style() {
     addRemoveStack.translatesAutoresizingMaskIntoConstraints = false
+    
     gridView.translatesAutoresizingMaskIntoConstraints = false
+    
     undoRedo.translatesAutoresizingMaskIntoConstraints = false
+    undoRedo.isUserInteractionEnabled = true
     colorView.translatesAutoresizingMaskIntoConstraints = false
   }
   
@@ -96,7 +108,6 @@ extension MainViewController {
 extension MainViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     let cellCount = Int(gridViewModel.rowCount * gridViewModel.colCount)
-    print(cellCount)
     return cellCount
   }
   
@@ -108,29 +119,31 @@ extension MainViewController: UICollectionViewDataSource {
   }
 }
 
-//extension MainViewController: UICollectionViewDelegate {
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    print("Tapped \(indexPath)")
-//  }
-//}
+extension MainViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let cell = gridView.cellForItem(at: indexPath)
+    if cell?.backgroundColor == nil {
+      cell?.backgroundColor = .cyan
+    } else {
+      cell?.backgroundColor = nil
+    }
+  }
+}
 
 extension MainViewController {
   func createCompositionalLayout() -> UICollectionViewLayout {
     let layout = UICollectionViewCompositionalLayout { _,_ in
-      print("maybe?!?!")
       return self.createGroup()
     }
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.interSectionSpacing = 8
     layout.configuration = config
-    print("FAAHK")
     return layout
   }
   
   func createGroup() -> NSCollectionLayoutSection {
     let rowHeight = CGFloat(1/gridViewModel.rowCount)
     let columnWidth = CGFloat(1/gridViewModel.colCount)
-    print("Maybe????")
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                            heightDimension: .fractionalHeight(1))
     
