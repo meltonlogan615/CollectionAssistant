@@ -13,8 +13,6 @@ class RemoveButton: UIButton {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-//    heightAnchor.constraint(equalToConstant: 56).isActive = true
-
   }
   
   required init?(coder: NSCoder) {
@@ -28,12 +26,12 @@ class RemoveButton: UIButton {
     var config = UIButton.Configuration.filled()
     config.attributedTitle = name
     config.baseForegroundColor = UIColor.systemBackground
-    config.baseBackgroundColor = UIColor.link
+    config.baseBackgroundColor = UIColor.red
     config.imagePadding = 8
     config.image = UIImage(systemName: "minus")
     config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
       var outgoing = incoming
-      outgoing.font = .preferredFont(forTextStyle: .title1)
+      outgoing.font = .preferredFont(forTextStyle: .title2)
       return outgoing
     }
     self.configuration = config

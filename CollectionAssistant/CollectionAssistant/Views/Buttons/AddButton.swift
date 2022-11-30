@@ -33,7 +33,7 @@ class AddButton: UIButton {
     config.image = UIImage(systemName: "plus")
     config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
       var outgoing = incoming
-      outgoing.font = .preferredFont(forTextStyle: .title1)
+      outgoing.font = .preferredFont(forTextStyle: .title2)
       return outgoing
     }
     self.configuration = config

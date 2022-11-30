@@ -59,6 +59,10 @@ class MainViewController: UIViewController {
     style()
     layout()
   }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    fatalError("Fuck Me")
+  }
 }
 
 extension MainViewController {

@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     vc.modalTransitionStyle = .partialCurl
     vc.modalPresentationStyle = .fullScreen
     vc.source = self
+    self.dismiss(animated: true)
     present(vc, animated: true)
 //    show(vc, sender: self)
   }
