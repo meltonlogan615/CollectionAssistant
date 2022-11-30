@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class GridViewModel {
-  var rowCount = 4
-  var colCount = 4
+  var rowCount = CGFloat(4)
+  var colCount = CGFloat(4)
   
 }

@@ -10,13 +10,11 @@ import UIKit
 class MainViewController: UIViewController {
   
   let addRemoveStack = AddRemoveStack()
-  var gridView: GridCollectionView! {
+  var gridView: UICollectionView! {
     didSet {
-      gridView.createdLayout = createCompositionalLayout()
-
-      gridView.collection.dataSource = self
+      gridView.dataSource = self
 //      gridView.delegate = self
-      gridView.collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+      gridView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
 //      gridView = UICollectionView(frame: CGRect(), collectionViewLayout: createCompositionalLayout())
     }
   }
@@ -43,7 +41,7 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
-    gridView = GridCollectionView()
+    gridView = UICollectionView(frame: .infinite, collectionViewLayout: createCompositionalLayout())
     addRemoveViewModel.setButtonActions(for: addRemoveStack.buttonStack)
     undoRedoViewModel.setButtonActions(for: undoRedo.buttonStack)
     colorViewModel.colors = colorView.colors
@@ -97,13 +95,13 @@ extension MainViewController {
 
 extension MainViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    let cellCount = (gridViewModel.rowCount * gridViewModel.colCount)
+    let cellCount = Int(gridViewModel.rowCount * gridViewModel.colCount)
     print(cellCount)
     return cellCount
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = gridView.collection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+    let cell = gridView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
     cell.layer.borderWidth = 2
     cell.layer.borderColor = UIColor.label.cgColor
     return cell
@@ -119,18 +117,20 @@ extension MainViewController: UICollectionViewDataSource {
 extension MainViewController {
   func createCompositionalLayout() -> UICollectionViewLayout {
     let layout = UICollectionViewCompositionalLayout { _,_ in
+      print("maybe?!?!")
       return self.createGroup()
     }
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.interSectionSpacing = 8
     layout.configuration = config
+    print("FAAHK")
     return layout
   }
   
   func createGroup() -> NSCollectionLayoutSection {
     let rowHeight = CGFloat(1/gridViewModel.rowCount)
     let columnWidth = CGFloat(1/gridViewModel.colCount)
-    
+    print("Maybe????")
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                            heightDimension: .fractionalHeight(1))
     
