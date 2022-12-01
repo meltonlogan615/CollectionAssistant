@@ -8,16 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		32024ED0293462E10040B991 /* GridCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32024ECF293462E10040B991 /* GridCollectionView.swift */; };
-		32C20ACE2934DB7B004031B5 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20ACD2934DB7B004031B5 /* GridViewModel.swift */; };
-		32C20AD02934DB8C004031B5 /* ColorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20ACF2934DB8C004031B5 /* ColorViewModel.swift */; };
+		329495152939167F009C0081 /* OneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329495142939167F009C0081 /* OneViewModel.swift */; };
+		3294951729395163009C0081 /* RunButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3294951629395163009C0081 /* RunButton.swift */; };
 		32C20AD22934DC4C004031B5 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD12934DC4C004031B5 /* CollectionItem.swift */; };
 		32C20AD42934DC56004031B5 /* CollectionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD32934DC56004031B5 /* CollectionGroup.swift */; };
 		32C20AD62934DC5F004031B5 /* CollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD52934DC5F004031B5 /* CollectionSection.swift */; };
 		32C20AD82934FEE6004031B5 /* AddRemoveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD72934FEE6004031B5 /* AddRemoveStack.swift */; };
 		32C20ADA29350666004031B5 /* UndoRedoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD929350666004031B5 /* UndoRedoStack.swift */; };
 		32C20ADC29351F5D004031B5 /* ActionButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20ADB29351F5D004031B5 /* ActionButtons.swift */; };
-		32C20ADF293650E1004031B5 /* UndoRedoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20ADE293650E1004031B5 /* UndoRedoViewModel.swift */; };
-		32C20AE2293666A0004031B5 /* AddRemoveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AE1293666A0004031B5 /* AddRemoveViewModel.swift */; };
 		32C9478E293207FB0094D431 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9478D293207FB0094D431 /* AppDelegate.swift */; };
 		32C94790293207FB0094D431 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C9478F293207FB0094D431 /* SceneDelegate.swift */; };
 		32C94792293207FB0094D431 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C94791293207FB0094D431 /* ViewController.swift */; };
@@ -33,16 +31,14 @@
 
 /* Begin PBXFileReference section */
 		32024ECF293462E10040B991 /* GridCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionView.swift; sourceTree = "<group>"; };
-		32C20ACD2934DB7B004031B5 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
-		32C20ACF2934DB8C004031B5 /* ColorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewModel.swift; sourceTree = "<group>"; };
+		329495142939167F009C0081 /* OneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewModel.swift; sourceTree = "<group>"; };
+		3294951629395163009C0081 /* RunButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunButton.swift; sourceTree = "<group>"; };
 		32C20AD12934DC4C004031B5 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 		32C20AD32934DC56004031B5 /* CollectionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGroup.swift; sourceTree = "<group>"; };
 		32C20AD52934DC5F004031B5 /* CollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSection.swift; sourceTree = "<group>"; };
 		32C20AD72934FEE6004031B5 /* AddRemoveStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveStack.swift; sourceTree = "<group>"; };
 		32C20AD929350666004031B5 /* UndoRedoStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoStack.swift; sourceTree = "<group>"; };
 		32C20ADB29351F5D004031B5 /* ActionButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtons.swift; sourceTree = "<group>"; };
-		32C20ADE293650E1004031B5 /* UndoRedoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndoRedoViewModel.swift; sourceTree = "<group>"; };
-		32C20AE1293666A0004031B5 /* AddRemoveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRemoveViewModel.swift; sourceTree = "<group>"; };
 		32C9478A293207FB0094D431 /* CollectionAssistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionAssistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C9478D293207FB0094D431 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C9478F293207FB0094D431 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,10 +68,7 @@
 		32C20ACB2934DB29004031B5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				32C20AE1293666A0004031B5 /* AddRemoveViewModel.swift */,
-				32C20ACD2934DB7B004031B5 /* GridViewModel.swift */,
-				32C20ADE293650E1004031B5 /* UndoRedoViewModel.swift */,
-				32C20ACF2934DB8C004031B5 /* ColorViewModel.swift */,
+				329495142939167F009C0081 /* OneViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -167,6 +160,7 @@
 				32C947AD2932103F0094D431 /* RemoveButton.swift */,
 				32C20ADB29351F5D004031B5 /* ActionButtons.swift */,
 				32C947AF293210620094D431 /* ColorButton.swift */,
+				3294951629395163009C0081 /* RunButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -248,19 +242,17 @@
 				32C947AE2932103F0094D431 /* RemoveButton.swift in Sources */,
 				32C20ADA29350666004031B5 /* UndoRedoStack.swift in Sources */,
 				32C94790293207FB0094D431 /* SceneDelegate.swift in Sources */,
-				32C20ADF293650E1004031B5 /* UndoRedoViewModel.swift in Sources */,
 				32C947AC29320ED70094D431 /* AddButton.swift in Sources */,
 				32C947A5293208700094D431 /* ColorSelectionView.swift in Sources */,
-				32C20AE2293666A0004031B5 /* AddRemoveViewModel.swift in Sources */,
 				32C20AD82934FEE6004031B5 /* AddRemoveStack.swift in Sources */,
 				32C947A829320B280094D431 /* MainViewController.swift in Sources */,
 				32C947B0293210620094D431 /* ColorButton.swift in Sources */,
 				32C20AD42934DC56004031B5 /* CollectionGroup.swift in Sources */,
 				32C20ADC29351F5D004031B5 /* ActionButtons.swift in Sources */,
-				32C20ACE2934DB7B004031B5 /* GridViewModel.swift in Sources */,
 				32C20AD62934DC5F004031B5 /* CollectionSection.swift in Sources */,
-				32C20AD02934DB8C004031B5 /* ColorViewModel.swift in Sources */,
+				3294951729395163009C0081 /* RunButton.swift in Sources */,
 				32024ED0293462E10040B991 /* GridCollectionView.swift in Sources */,
+				329495152939167F009C0081 /* OneViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

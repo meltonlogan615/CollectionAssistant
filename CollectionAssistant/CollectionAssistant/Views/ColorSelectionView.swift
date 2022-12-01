@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 class ColorSelectionView: UIView {
-  let colors: [UIColor] = [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemBlue, .systemPurple, .black, .clear]
+  var colors: [UIColor] = [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemBlue, .systemPurple, .label, .clear]
+
   var colorStack = UIStackView()
   
   override init(frame: CGRect) {
@@ -65,14 +66,31 @@ extension ColorSelectionView {
         case .systemPurple:
           button.setTitle("Purple", for: [])
 
-        case .black:
-          button.setTitle("Black", for: [])
-          button.setTitleColor(UIColor.systemBackground, for: [])
+        case .label:
+          button.setTitle("Label", for: [])
+          var config = UIButton.Configuration.bordered()
+          config.baseForegroundColor = .systemBackground
+          config.baseBackgroundColor = .label
+          config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = .preferredFont(forTextStyle: .largeTitle)
+            return outgoing
+          }
+          button.configuration = config
+//          button.setTitleColor(UIColor.systemBackground, for: [])
+          
         case .clear:
-          button.backgroundColor = .white
           button.setTitle("Clear All", for: [])
-          button.setTitleColor(UIColor.label, for: [])
-          button.layer.borderColor = UIColor.black.cgColor
+          var config = UIButton.Configuration.bordered()
+          config.baseForegroundColor = .label
+          config.baseBackgroundColor = .systemBackground
+          config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = .preferredFont(forTextStyle: .largeTitle)
+            return outgoing
+          }
+          button.configuration = config
+          button.layer.borderColor = UIColor.label.cgColor
           
         default:
           button.setTitle("fart", for: [])
