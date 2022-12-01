@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     view.backgroundColor = .secondarySystemFill
     Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(keepMoving), userInfo: nil, repeats: false)
   }
-  
+
   @objc
   func keepMoving() {
     let vc = MainViewController()
