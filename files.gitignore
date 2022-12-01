@@ -1,0 +1,6 @@
+## Ignore file
+
+## Ignore UserState
+*.xcuserstate
+*UserInterfaceState.xcuserstate
+CollectionAssistant/CollectionAssistant.xcodeproj/project.xcworkspace/xcuserdata/fartmaster.xcuserdatad/UserInterfaceState.xcuserstate
