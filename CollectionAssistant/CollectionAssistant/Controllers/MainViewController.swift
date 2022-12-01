@@ -52,6 +52,7 @@ class MainViewController: UIViewController {
     
     colorViewModel.colors = colorView.colors
     colorViewModel.buttonStack = colorView.colorStack
+    colorViewModel.collection = gridView
     colorViewModel.setColorButtonActions()
     
     style()
@@ -121,7 +122,7 @@ extension MainViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let cell = gridView.cellForItem(at: indexPath)
     if cell?.backgroundColor == nil {
-      cell?.backgroundColor = .cyan
+      cell?.backgroundColor = colorViewModel.currentColor
     } else {
       cell?.backgroundColor = nil
     }
