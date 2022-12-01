@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 class AddRemoveStack: UIView {
-  var addRowButton = AddButton(name: "Add Row")
-  var removeRowButton = RemoveButton(name: "Remove Row")
-  var addColButton = AddButton(name: "Add Col")
-  var removeColButton = RemoveButton(name: "Remove Col")
+  var addRowButton = AddButton(name: "Row")
+  var removeRowButton = RemoveButton(name: "Row")
+  var addColButton = AddButton(name: "Column")
+  var removeColButton = RemoveButton(name: "Column")
   var buttonStack = UIStackView()
   
   override init(frame: CGRect) {
