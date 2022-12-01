@@ -45,7 +45,6 @@ class ColorViewModel {
         sender.isSelected = true
     }
     print(String(describing: currentColor))
-//    currentColor = colors[sender.tag]
   }
   
   func deselectButtons() {
