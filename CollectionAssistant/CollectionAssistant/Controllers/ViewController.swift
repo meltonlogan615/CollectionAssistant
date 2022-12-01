@@ -11,21 +11,16 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
-    view.backgroundColor = .magenta
-    view.isUserInteractionEnabled = false
-    Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(keepMoving), userInfo: nil, repeats: false)
+    view.backgroundColor = .secondarySystemFill
+    Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(keepMoving), userInfo: nil, repeats: false)
   }
   
   @objc
   func keepMoving() {
     let vc = MainViewController()
-    vc.modalTransitionStyle = .partialCurl
+    vc.modalTransitionStyle = .crossDissolve
     vc.modalPresentationStyle = .fullScreen
-    vc.source = self
-    self.dismiss(animated: true)
     present(vc, animated: true)
-//    show(vc, sender: self)
   }
 }
 

@@ -9,7 +9,6 @@ import UIKit
 
 class MainViewController: UIViewController {
   
-  var source: UIViewController!
   let addRemoveStack = AddRemoveStack()
   
   var gridView: UICollectionView! {
@@ -45,11 +44,10 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .systemBackground
-
-    gridView = UICollectionView(frame: .infinite, collectionViewLayout: createCompositionalLayout())
+    gridView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
     
     addRemoveViewModel.setButtonActions(for: addRemoveStack.buttonStack)
-    
+
     undoRedoViewModel.setButtonActions(for: undoRedo.buttonStack)
     
     colorViewModel.colors = colorView.colors
@@ -58,10 +56,6 @@ class MainViewController: UIViewController {
     
     style()
     layout()
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    fatalError("Fuck Me")
   }
 }
 
@@ -114,7 +108,7 @@ extension MainViewController: UICollectionViewDataSource {
     let cellCount = Int(gridViewModel.rowCount * gridViewModel.colCount)
     return cellCount
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = gridView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
     cell.layer.borderWidth = 2
@@ -144,27 +138,27 @@ extension MainViewController {
     layout.configuration = config
     return layout
   }
-  
+
   func createGroup() -> NSCollectionLayoutSection {
     let rowHeight = CGFloat(1/gridViewModel.rowCount)
     let columnWidth = CGFloat(1/gridViewModel.colCount)
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                            heightDimension: .fractionalHeight(1))
-    
+
     let sectionSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                              heightDimension: .fractionalHeight(rowHeight))
-    
+
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(columnWidth),
                                           heightDimension: .fractionalHeight(1))
 
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    
+
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                    subitems: [item])
 
     let sectionAssembly = NSCollectionLayoutGroup.vertical(layoutSize: sectionSize,
                                                            subitems: [group])
-    
+
     let section = NSCollectionLayoutSection(group: sectionAssembly)
     return section
   }
