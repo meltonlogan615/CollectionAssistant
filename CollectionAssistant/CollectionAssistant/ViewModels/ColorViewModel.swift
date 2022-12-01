@@ -13,6 +13,7 @@ class ColorViewModel {
   var colors: [UIColor]!
   var currentColor = UIColor()
   var buttonStack: UIStackView!
+  var collection: UICollectionView!
   
   func setColorButtonActions() {
     for item in buttonStack.arrangedSubviews {
@@ -21,14 +22,33 @@ class ColorViewModel {
     }
   }
   
+  func clearAllCells(in collection: UICollectionView) {
+    for cell in collection.visibleCells {
+      cell.backgroundColor = nil
+    }
+  }
+  
   @objc
   func colorSelected(_ sender: UIButton) {
     self.currentColor = colors[sender.tag]
-    if colors[sender.tag] == .clear {
-//      clearAllCells()
-//      items.removeAll()
-    }
     sender.isHighlighted = true
+    switch self.currentColor {
+      case .clear:
+        clearAllCells(in: collection)
+        deselectButtons()
+        sender.isHighlighted = false
+        //      items.removeAll()
+      default:
+        deselectButtons()
+        sender.layer.borderWidth = 5
+        sender.layer.borderColor = colors[sender.tag].cgColor
+        sender.isSelected = true
+    }
+    print(String(describing: currentColor))
+//    currentColor = colors[sender.tag]
+  }
+  
+  func deselectButtons() {
     for button in buttonStack.arrangedSubviews {
       guard let button = button as? UIButton else { return }
       if button.isSelected {
@@ -36,9 +56,5 @@ class ColorViewModel {
         button.isSelected = false
       }
     }
-    sender.layer.borderWidth = 5
-    sender.layer.borderColor = colors[sender.tag].cgColor
-    sender.isSelected = true
-    currentColor = colors[sender.tag]
   }
 }
