@@ -10,6 +10,7 @@
 		32024ED0293462E10040B991 /* GridCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32024ECF293462E10040B991 /* GridCollectionView.swift */; };
 		329495152939167F009C0081 /* OneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329495142939167F009C0081 /* OneViewModel.swift */; };
 		3294951729395163009C0081 /* RunButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3294951629395163009C0081 /* RunButton.swift */; };
+		32949519293AB9FB009C0081 /* OutputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32949518293AB9FB009C0081 /* OutputModel.swift */; };
 		32C20AD22934DC4C004031B5 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD12934DC4C004031B5 /* CollectionItem.swift */; };
 		32C20AD42934DC56004031B5 /* CollectionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD32934DC56004031B5 /* CollectionGroup.swift */; };
 		32C20AD62934DC5F004031B5 /* CollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C20AD52934DC5F004031B5 /* CollectionSection.swift */; };
@@ -33,6 +34,7 @@
 		32024ECF293462E10040B991 /* GridCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionView.swift; sourceTree = "<group>"; };
 		329495142939167F009C0081 /* OneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneViewModel.swift; sourceTree = "<group>"; };
 		3294951629395163009C0081 /* RunButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunButton.swift; sourceTree = "<group>"; };
+		32949518293AB9FB009C0081 /* OutputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputModel.swift; sourceTree = "<group>"; };
 		32C20AD12934DC4C004031B5 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
 		32C20AD32934DC56004031B5 /* CollectionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGroup.swift; sourceTree = "<group>"; };
 		32C20AD52934DC5F004031B5 /* CollectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSection.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				32C20AD12934DC4C004031B5 /* CollectionItem.swift */,
 				32C20AD32934DC56004031B5 /* CollectionGroup.swift */,
 				32C20AD52934DC5F004031B5 /* CollectionSection.swift */,
+				32949518293AB9FB009C0081 /* OutputModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				32C94792293207FB0094D431 /* ViewController.swift in Sources */,
 				32C9478E293207FB0094D431 /* AppDelegate.swift in Sources */,
+				32949519293AB9FB009C0081 /* OutputModel.swift in Sources */,
 				32C20AD22934DC4C004031B5 /* CollectionItem.swift in Sources */,
 				32C947AE2932103F0094D431 /* RemoveButton.swift in Sources */,
 				32C20ADA29350666004031B5 /* UndoRedoStack.swift in Sources */,

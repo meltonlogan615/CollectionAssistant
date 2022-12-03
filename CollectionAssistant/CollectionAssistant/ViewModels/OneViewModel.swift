@@ -18,8 +18,10 @@ class OneViewModel {
   var currentColor = UIColor()
   var colorStack: UIStackView!
   var collection: UICollectionView!
-  
-  // MARK: - Add / Remove Methods
+}
+
+// MARK: - Add / Remove Methods
+extension OneViewModel {
   func setAddRemoveActions(for buttonStack: UIStackView) {
     for button in buttonStack.arrangedSubviews {
       guard let button = button as? UIButton else { return }
@@ -44,7 +46,6 @@ class OneViewModel {
     rowCount += 1
     collection.reloadData()
   }
-  
   @objc
   func removeRow() {
     clearAllCells(in: collection)
@@ -55,14 +56,12 @@ class OneViewModel {
       return
     }
   }
-  
   @objc
   func addColumn() {
     clearAllCells(in: collection)
     colCount += 1
     collection.reloadData()
   }
-  
   @objc
   func removeColumn() {
     clearAllCells(in: collection)
@@ -74,10 +73,10 @@ class OneViewModel {
     }
   }
   
-  // MARK: - Grid methods
-  // Currently, none.
-  
-  // MARK: - Color Selection Methods
+}
+
+// MARK: - Color Selection Methods
+extension OneViewModel {
   func setColorButtonActions() {
     for item in colorStack.arrangedSubviews {
       guard let item = item as? UIButton else { return }
@@ -86,21 +85,19 @@ class OneViewModel {
   }
   
   func deselectButtons() {
-      for button in colorStack.arrangedSubviews {
-        guard let button = button as? UIButton else { return }
-        if button.isSelected {
-          button.layer.borderWidth = 0.5
-          button.isSelected = false
-        }
+    for button in colorStack.arrangedSubviews {
+      guard let button = button as? UIButton else { return }
+      if button.isSelected {
+        button.layer.borderWidth = 0.5
+        button.isSelected = false
       }
     }
-  
+  }
   func clearAllCells(in collection: UICollectionView) {
     for cell in collection.visibleCells {
       cell.backgroundColor = nil
     }
   }
-  
   @objc
   func colorSelected(_ sender: UIButton) {
     deselectButtons()
@@ -117,9 +114,10 @@ class OneViewModel {
     }
   }
   
+}
 
-  
-  // MARK: - Undo / ReDo methods
+// MARK: - Undo / ReDo methods
+extension OneViewModel {
   func setUndoRedoButtons(for buttonStack: UIStackView) {
     for button in buttonStack.arrangedSubviews {
       guard let button = button as? UIButton else { return }
@@ -143,4 +141,5 @@ class OneViewModel {
   func redoLastAction() {
     print("redone")
   }
+  
 }

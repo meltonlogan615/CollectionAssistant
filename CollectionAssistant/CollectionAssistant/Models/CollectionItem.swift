@@ -11,4 +11,6 @@ import UIKit
 struct CollectionItem {
   var name: String
   var color: UIColor
+  var height: CGFloat
+  var width: CGFloat
 }
